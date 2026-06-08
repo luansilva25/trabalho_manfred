@@ -10,12 +10,12 @@ int main() {
     
     do {
         printf("Menu:\n");
-        printf("1- Incluir Contato\n");
-        printf("2- Listar Contatos\n");
-        printf("3- Consultar Contato\n");
-        printf("4- Excluir Contato\n");
-        printf("5- Atualizar Contato\n");
-        printf("6- Sair\n");
+        printf("1 - Incluir Contato\n");
+        printf("2 - Listar Contatos\n");
+        printf("3 - Consultar Contato\n");
+        printf("4 - Excluir Contato\n");
+        printf("5 - Atualizar Contato\n");
+        printf("6 - Sair\n");
         printf("Escolha uma opção:");
         scanf("%d", &option);
 
@@ -32,10 +32,16 @@ int main() {
                 read(contacts, totalContacts);
                 break;
             case 3:
-                printf("Você escolheu a Opção 3.\n");
+                search(contacts, totalContacts);
                 break;
             case 4:
-                printf("Você escolheu a Opção 4.\n");
+                totalContacts = delete(contacts, totalContacts);
+                if (totalContacts > 0){
+                    contacts = realloc(contacts, totalContacts * sizeof(Contacts));
+                } else {
+                    free(contacts);
+                    contacts = NULL;
+                }
                 break;
             case 5: 
                 if(totalContacts > 0){

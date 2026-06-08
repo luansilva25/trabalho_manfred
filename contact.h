@@ -14,5 +14,7 @@ typedef struct {
 Contact *create(int *qtdInfos);
 void read(Contacts *contacts, int totalContacts);
 void update(Contacts *contacts);
+void search(Contacts *contacts, int totalContacts);
+int delete(Contacts *contacts, int totalContacts);
 
 #endif
