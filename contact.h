@@ -17,4 +17,7 @@ void update(Contacts *contacts);
 void search(Contacts *contacts, int totalContacts);
 int delete(Contacts *contacts, int totalContacts);
 
+void saveContacts(Contacts *contacts, int totalContacts);
+Contacts *loadContacts(int *totalContacts);
+
 #endif

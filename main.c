@@ -27,6 +27,7 @@ int main() {
                 totalContacts++;
                 contacts = realloc(contacts, totalContacts * sizeof(Contacts));
                 contacts[totalContacts - 1].infos = create(&contacts[totalContacts - 1].qtdInfos);
+                saveContacts(contacts, totalContacts);
                 break;
             case 2:
                 read(contacts, totalContacts);
@@ -42,6 +43,7 @@ int main() {
                     free(contacts);
                     contacts = NULL;
                 }
+                saveContacts(contacts, totalContacts);
                 break;
             case 5: 
                 if(totalContacts > 0){
@@ -63,6 +65,7 @@ int main() {
                         break;
                     }
                     update(&contacts[optionUpdate - 1]);
+                    saveContacts(contacts, totalContacts);
                 }
                 else{
                     printf("nenhum contato para atualizar\n");
