@@ -8,6 +8,3 @@ gcc main.c createContact.c deleteContact.c persistence.c readContacts.c searchCo
 ```bash
 ./{nome do programa}
 ```
-
-## OBS: Feito no WSL Linux, não use Windows Powershell para rodar a p**** do código
-## OBS 2: Rode os comandos via terminal WSL linux
