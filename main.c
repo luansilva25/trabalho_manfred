@@ -30,9 +30,11 @@ int main() {
                 saveContacts(contacts, totalContacts);
                 break;
             case 2:
+                contacts = loadContacts(&totalContacts);
                 read(contacts, totalContacts);
                 break;
             case 3:
+                contacts = loadContacts(&totalContacts);
                 search(contacts, totalContacts);
                 break;
             case 4:

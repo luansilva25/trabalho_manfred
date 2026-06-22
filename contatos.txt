@@ -1,0 +1,12 @@
+QTDINFOS;2
+nome;teste
+telefone;1232132
+FIM
+QTDINFOS;2
+nome;teste2
+telefone;1231232132
+FIM
+QTDINFOS;2
+nome;luan
+telefone;123123
+FIM
