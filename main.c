@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include "contact.h"
 
+void freeContacts(Contacts *contacts, int totalContacts) {
+    if (contacts == NULL) return;
+    for (int i = 0; i < totalContacts; i++) {
+        for (int j = 0; j < contacts[i].qtdInfos; j++) {
+            free(contacts[i].infos[j].key);
+            free(contacts[i].infos[j].value);
+        }
+        free(contacts[i].infos);
+    }
+    free(contacts);
+}
+
 int main() {
     Contacts *contacts = NULL;
     int option = 0;
@@ -30,14 +42,18 @@ int main() {
                 saveContacts(contacts, totalContacts);
                 break;
             case 2:
+                freeContacts(contacts, totalContacts);
                 contacts = loadContacts(&totalContacts);
                 read(contacts, totalContacts);
                 break;
             case 3:
+                freeContacts(contacts, totalContacts);
                 contacts = loadContacts(&totalContacts);
                 search(contacts, totalContacts);
                 break;
             case 4:
+                freeContacts(contacts, totalContacts);
+                contacts = loadContacts(&totalContacts);
                 totalContacts = delete(contacts, totalContacts);
                 if (totalContacts > 0){
                     contacts = realloc(contacts, totalContacts * sizeof(Contacts));
@@ -48,6 +64,8 @@ int main() {
                 saveContacts(contacts, totalContacts);
                 break;
             case 5: 
+                freeContacts(contacts, totalContacts);
+                contacts = loadContacts(&totalContacts);
                 if(totalContacts > 0){
                     printf("\n ======= Contatos ====== \n");
                     for (int i = 0; i < totalContacts; i++){
@@ -82,5 +100,6 @@ int main() {
         }
     } while (option != 6);
 
+    freeContacts(contacts, totalContacts);
     return 0;
 }
