@@ -2,7 +2,7 @@
 
 ## Compilar/Recompilar Arquivo 
 ```bash
-gcc main.c {nome dos outros arquivos}.c -o {nome do programa}
+gcc main.c createContact.c deleteContact.c persistence.c readContacts.c searchContact.c updateContact.c -o contatos
 ```
 ## Rodar o Arquivo Compilado
 ```bash
